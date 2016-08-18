@@ -1,0 +1,1 @@
+Insurance companies collecting data from wearables , sensors 
