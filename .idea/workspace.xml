@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df0c4bf4-134d-432f-a72d-ba07781a6d30" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polling/serializers.py" afterPath="$PROJECT_DIR$/polling/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/polling/views.py" afterPath="$PROJECT_DIR$/polling/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insurance/settings.py" afterPath="$PROJECT_DIR$/insurance/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/insurance/urls.py" afterPath="$PROJECT_DIR$/insurance/urls.py" />
     </list>
     <ignored path="insurance.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +34,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/polling/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45531198">
-              <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/insurance/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="21" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="21" />
+              <folding>
+                <element signature="e#642#674#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/insurance/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.94266444">
+              <caret line="155" column="1" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -85,11 +107,12 @@
       <list>
         <option value="$PROJECT_DIR$/polling/constants.py" />
         <option value="$PROJECT_DIR$/polling/models.py" />
-        <option value="$PROJECT_DIR$/insurance/settings.py" />
         <option value="$PROJECT_DIR$/analytics/admin.py" />
         <option value="$PROJECT_DIR$/polling/admin.py" />
         <option value="$PROJECT_DIR$/polling/serializers.py" />
         <option value="$PROJECT_DIR$/polling/views.py" />
+        <option value="$PROJECT_DIR$/insurance/urls.py" />
+        <option value="$PROJECT_DIR$/insurance/settings.py" />
       </list>
     </option>
   </component>
@@ -176,7 +199,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/polling/models.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/insurance/settings.py" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -307,7 +330,7 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="728" extended-state="0" />
+    <frame x="-4" y="-4" width="1374" height="728" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -424,13 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/insurance/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62731874">
-          <caret line="89" column="13" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/polling/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -461,8 +477,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/polling/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45531198">
-          <caret line="22" column="66" selection-start-line="22" selection-start-column="66" selection-end-line="22" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insurance/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="21" />
+          <folding>
+            <element signature="e#642#674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/insurance/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94266444">
+          <caret line="155" column="1" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
           <folding />
         </state>
       </provider>

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 	'mptt',
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -148,4 +149,9 @@ MEDIA_URL = 'http://insurance/media/'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGE_SIZE': 10
+}
  
