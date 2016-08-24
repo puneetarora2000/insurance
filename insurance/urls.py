@@ -25,13 +25,14 @@ from polling  import views
 
 
 router = routers.DefaultRouter()
+#8
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-
-#router.register(r'nicotinefood', views.NicotineFoodViewSet)
 router.register(r'contactlogging', views.ContactLoggingSerializerViewSet)
 router.register(r'hdr', views.HospitalSubjectDeviceRegistrationSerializerViewSet)
 router.register(r'insuranceoffice', views.InsuraceOfficeRegistrationSerializerViewSet)
+router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
+router.register(r'insuranceplan', views.InsuranceplancategoryViewSet )
 router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
 
 urlpatterns = [
