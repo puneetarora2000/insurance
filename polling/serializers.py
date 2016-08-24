@@ -16,29 +16,29 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ContactLoggingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model =  ContactLogging
-        fields = ('ContactLogging', 'LastUpdate')
+        fields = ('contact','start_datetime','end_datetime','measurement','interval','lastupdate')
 
 class HospitalSubjectDeviceRegistrationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = HospitalSubjectDeviceRegistration
-        fields = ('SmokingMedium', 'LastUpdate')
+        fields = ('hospital_name_id','subject_detail','subject_insurance_policy_detail','medical_history_brief','device_details','lastupdate')
 
 class HospitalSubjectRegistrationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = HospitalSubjectRegistration
-        fields = ('PhysicalActivitySpeed', 'LastUpdate')
+        fields = ('hospital_detail','api_public_key','api_private_key','api_consumer_key','api_token_key','isactive','isverified','lastupdate','lastupdate')
 
         #InsuraceOfficeRegistration
 class InsuraceOfficeRegistrationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = InsuraceOfficeRegistration
-        fields = ('SystolicReading','DiastolicReading','LastDateOfTest','LastUpdate')
+        fields = ('insurance_office','api_private_key','api_public_key','api_consumer_key','api_token_key','lastupdate')
 
         #InsurancePremiumModelling
 class InsurancePremiumModellingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = InsurancePremiumModelling
-        fields = ('WhichDrink','FatInTake','FoodSupliment','LastUpdate')
+        fields = ('hospital_id','subject_id','insurance_policy_id','projected_premium','lastupdate')
 
 
 #CholesterolReading
@@ -46,4 +46,4 @@ class InsurancePremiumModellingSerializer(serializers.HyperlinkedModelSerializer
 class InsuranceplancategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Insuranceplancategory
-        fields = ('LowDensityLipoProtein','VeryLowDensityLipoProtein','HighDensityLipoProtein','TriglyceridesReadings','TotalCholesterol','LastDateOfTest','LastUpdate')
+        fields = ('insuranceplancategoryname','insuranceplancategorydocumention','lastupdate')
