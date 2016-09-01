@@ -45,13 +45,13 @@ class HospitalSubjectDeviceRegistration(models.Model):
 class HospitalSubjectRegistration(models.Model):
     #id = models.IntegerField(blank=True, null=True)
     hospital_detail = models.TextField(blank=True, null=True)
-    api_public_key = models.CharField(max_length=222)
-    api_private_key = models.CharField(max_length=222, blank=True, null=True)
-    api_consumer_key = models.CharField(max_length=222, blank=True, null=True)
+    hospital_user_name = models.CharField(max_length=222)
     api_token_key = models.CharField(max_length=222, blank=True, null=True)
-    isactive = models.IntegerField(db_column='isActive', blank=True, null=True)  # Field name made lowercase.
-    isverified = models.IntegerField(db_column='isVerified', blank=True, null=True)  # Field name made lowercase.
+    isactive = models.NullBooleanField(db_column='isActive', blank=True, null=True)  # Field name made lowercase.
+    isverified = models.NullBooleanField(db_column='isVerified', blank=True, null=True)  # Field name made lowercase.
     lastupdate = models.DateTimeField(db_column='LastUpdate',auto_now_add=True)  # Field name made lowercase.
+    def __unicode__(self):
+		return str(self.hospital_detail)
     class Meta:
         managed = True
         db_table = 'hospital_subject_registration'
@@ -65,7 +65,8 @@ class InsuraceOfficeRegistration(models.Model):
     api_consumer_key = models.CharField(max_length=200, blank=True, null=True)
     api_token_key = models.CharField(max_length=200, blank=True, null=True)
     lastupdate = models.DateTimeField(db_column='LastUpdate',auto_now_add=True)  # Field name made lowercase.
-
+    def __unicode__(self):
+		return str(self.insurance_office)
     class Meta:
         managed = True
         db_table = 'insurace_office_registration'
@@ -78,7 +79,8 @@ class InsurancePremiumModelling(models.Model):
     insurance_policy_id = models.IntegerField(blank=True, null=True)
     projected_premium = models.FloatField(blank=True, null=True)
     lastupdate = models.DateTimeField(db_column='LastUpdate',auto_now_add=True)  # Field name made lowercase.
-
+    def __unicode__(self):
+		return str(self.hospital_id)
     class Meta:
         managed = True
         db_table = 'insurance_premium_modelling'
@@ -88,6 +90,8 @@ class Insuranceplancategory(models.Model):
     insuranceplancategoryname = models.CharField(db_column='InsurancePlanCategoryName', max_length=200, blank=True, null=True)  # Field name made lowercase.
     insuranceplancategorydocumention = models.TextField(db_column='InsurancePlanCategoryDocumention', blank=True, null=True)  # Field name made lowercase.
     lastupdate = models.DateTimeField(db_column='LastUpdate',auto_now_add=True)  # Field name made lowercase.
+    def __unicode__(self):
+		return str(self.insuranceplancategoryname)
     class Meta:
         managed = True
         db_table = 'insuranceplancategory'
@@ -138,6 +142,8 @@ class SensorDeviceType(models.Model):
     measurement_unit = models.CharField(max_length=50, blank=True, null=True)
     documentation = models.CharField(max_length=400, blank=True, null=True)
     lastupdate = models.DateTimeField(db_column='LastUpdate',auto_now_add=True)  # Field name made lowercase.
+    def __unicode__(self):
+		return str(self.devicename)
     class Meta:
         managed = True
         db_table = 'sensor_device_type'
