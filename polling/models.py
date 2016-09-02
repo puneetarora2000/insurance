@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from django.contrib.auth.models import User
 
 from distutils.command.config import config
 
@@ -147,3 +148,21 @@ class SensorDeviceType(models.Model):
     class Meta:
         managed = True
         db_table = 'sensor_device_type'
+
+class Post(models.Model):
+    author = models.ForeignKey(User)
+    text = models.TextField()
+
+    # Time is a rhinocerous
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created']
+
+    def __unicode__(self):
+        return self.text+' - '+self.author.username
+
+
+
+

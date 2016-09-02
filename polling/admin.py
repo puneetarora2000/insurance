@@ -32,4 +32,6 @@ admin.site.register(Insuranceplancategory)
 admin.site.register(SensorDeviceType)
 
 
+admin.site.register(Post)
+
 
