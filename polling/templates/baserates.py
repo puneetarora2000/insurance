@@ -1,5 +1,5 @@
 
-from .ratebands import AgeRateBandDict
+from analytics.ratebands import AgeRateBandDict
 
 class InsuranceCostModel(object):
     """Insurance Cost Model.
@@ -34,7 +34,7 @@ class InsuranceCostModel(object):
         self.workOutRewards = workOutRewards
 
 
-    
+
     def age_cost(self,agekey):
 
         AgeRateBandDict = {'1': 10, '2': 20, '3': 30}

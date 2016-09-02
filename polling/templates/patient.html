@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+		<ul>
+		<li><a href="/doctor/{{practitioner.id}}/all">Patients</a></li>
+		</ul>
+		{% endblock %}
+
+
+{% block content %}
+
+<h1>{{patient.Patient_ID}}</h1>
+<p>{{patient.Patient_History}}</p>
+
+{% if patient.Credential %}
+<p><img src="/static/{{patient.Credential}}" width="200" /></p>
+{% endif %}
+
+
+</body>
+</html>
+
+{% endblock %}

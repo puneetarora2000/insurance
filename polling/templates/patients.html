@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<ul>
+<li><a href="/doctor/{{doctor}}/all">Patients</a></li>
+<li><a href="/doctor/{{doctor}}/create">Add New patient</a></li>
+<li><a href="/accounts/login">Logout</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<h1><u><h1>List of patients </h1></u>
+{% for patient in patients %}
+<div>
+<h2><a href="/doctor/{{doctor}}/get/{{ patient.id }}">{{ patient.Patient_ID }}</a></h2>
+<p>{{ patient.Patient_History }}</p>
+</div>
+{% endfor %}
+
+
+{% endblock %}
