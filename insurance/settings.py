@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'insurance.core',
 	'polling',
 	'analytics',
 	'mptt',
@@ -63,7 +64,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'insurance/templates',
+            'templates',
             #'home/templates',
 	    #'blog/templates',
         ],

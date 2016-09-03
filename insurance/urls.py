@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-
+from polling.views import save_patients_devices
 
 
 from django.conf.urls import url, include
@@ -34,11 +34,13 @@ router.register(r'insuranceoffice', views.InsuraceOfficeRegistrationSerializerVi
 router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
 router.register(r'insuranceplan', views.InsuranceplancategoryViewSet )
 router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
+#router.register(r'accounts', views.UserView, 'list')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^', save_patients_devices ),
 ]
 
 

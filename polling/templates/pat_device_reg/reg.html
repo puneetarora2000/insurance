@@ -1,0 +1,12 @@
+{% extends 'pat_device_reg/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <form action="/" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Save"/>
+    </form>
+
+
+{% endblock %}

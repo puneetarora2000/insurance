@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+
+
+
+
+
+
+{% block title %}{{ title }} | Insurance Virtual Organisation Inc {% endblock %}
+{% load staticfiles %}
+{% block extrahead %}
+    <script src="{% static 'polling/js/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'polling/js/bootstrap.min.js' %}" ></script>
+    <script src="{% static 'polling/js/polling.js' %}" ></script>
+
+{% endblock %}
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}"> Insurance </a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -52,7 +52,7 @@ class HospitalSubjectRegistration(models.Model):
     isverified = models.NullBooleanField(db_column='isVerified', blank=True, null=True)  # Field name made lowercase.
     lastupdate = models.DateTimeField(db_column='LastUpdate',auto_now_add=True)  # Field name made lowercase.
     def __unicode__(self):
-		return str(self.hospital_detail)
+		return str(self.hospital_detail+"-"+self.api_token_key+"-"+self.hospital_user_name)
     class Meta:
         managed = True
         db_table = 'hospital_subject_registration'
@@ -153,7 +153,7 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     text = models.TextField()
 
-    # Time is a rhinocerous
+    # Time is a
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 

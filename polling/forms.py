@@ -12,7 +12,7 @@ class ButtonWidget(forms.Widget):
 
     def render(self, name, value, attrs=None):
         context = {
-            'url': 'http://registry.com/api.json'
+            'url': 'http://localhost:9000/patients/'
         }
         return mark_safe(render_to_string(self.template_name, context))
 
@@ -35,7 +35,12 @@ class PostForm(forms.ModelForm):
 
 
 class HospitalSubjectDeviceRegistrationForm(forms.ModelForm):
+     url = forms.URLField()
+class Meta:
+	model = HospitalSubjectDeviceRegistration
+	exclude = []
 
-	class Meta:
-		model = HospitalSubjectDeviceRegistration
-		exclude = []
+
+
+
+

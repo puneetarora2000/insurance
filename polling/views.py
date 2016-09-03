@@ -4,10 +4,22 @@ from django.http import HttpResponse
 from django.http import QueryDict
 # Create your views here.
 import json
+import requests
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from polling.serializers import *
 from polling.forms import *
+from . import authentication, serializers  # see previous post[1] for user serializer
+from django.shortcuts import redirect
+from . import authentication, serializers  # see previous post[1] for user serializer.
+from django.http import Http404
+
+# def HospitalSubjectDeviceRegistration(request,RegistedHospitalID):
+#     try:
+#         data = HospitalSubjectDeviceRegistration.objects.get(pk=RegistedHospitalID)
+#     except HospitalSubjectDeviceRegistration.DoesNotExist:
+#         raise Http404('Comprehension does not exist')
+#     return render(request,  'polling/templates/deviceregistration.html', {'deviceregisration': data})
 
 
 # 1
@@ -60,7 +72,6 @@ class InsuranceplancategoryViewSet(viewsets.ModelViewSet):
 
 
 
-
 def create_post(request):
     if request.method == 'POST':
         post_text = request.POST.get('the_post')
@@ -105,3 +116,20 @@ def delete_post(request):
             json.dumps({"nothing to see": "this isn't happening"}),
             content_type="application/json"
         )
+
+def save_patients_devices(request):
+
+    if request.method == "POST":
+        form = HospitalSubjectDeviceRegistrationForm(request.POST)
+        if form.is_valid():
+            url = form.cleaned_data['url']
+            r = requests.get('http://127.0.0.0:9000/patients/id' + url)
+            json = r.json()
+            serializer = HospitalSubjectDeviceRegistrationSerializer (data=json)
+            if serializer.is_valid():
+                data = serializer.save()
+                return render(request, 'pat_device.html', {'data': data})
+    else:
+        form = HospitalSubjectDeviceRegistrationForm()
+
+    return render(request, 'index.html', {'form': form})
