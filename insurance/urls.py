@@ -16,31 +16,35 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from polling.views import save_patients_devices
+#rom polling.views import save_patients_devices
 
 
 from django.conf.urls import url, include
 from rest_framework import routers
 from polling  import views
 
-
+from rest_framework.authtoken import views as authviews
 router = routers.DefaultRouter()
 #8
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'contactlogging', views.ContactLoggingSerializerViewSet)
-router.register(r'hdr', views.HospitalSubjectDeviceRegistrationSerializerViewSet)
+router.register(r'hdr', views.HospitalSubjectRegistrationSerializerViewSet)
 router.register(r'insuranceoffice', views.InsuraceOfficeRegistrationSerializerViewSet)
-router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
+#router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
 router.register(r'insuranceplan', views.InsuranceplancategoryViewSet )
-router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
+router.register(r'cardiacdata', views.CardiacViewSet)
+#router.register(r'insurancepremium', views.InsurancePremiumModellingViewSet )
 #router.register(r'accounts', views.UserView, 'list')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include(router.urls)),
+    url(r'^api-token-auth/', authviews.obtain_auth_token),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^', save_patients_devices ),
+    url(r'^', include(router.urls)),
+    #url(r'^docs/', include('rest_framework_swagger.urls')),
+    url(r'^polling/', include('polling.urls', namespace="polling")),
+    url(r'^cardiacpost/',views.cardiacpost,name="cardiacpost"),
 ]
 
 

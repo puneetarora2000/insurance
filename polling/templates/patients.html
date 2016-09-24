@@ -11,12 +11,10 @@
 {% block content %}
 
 <h1><u><h1>List of patients </h1></u>
-{% for patient in patients %}
-<div>
-<h2><a href="/doctor/{{doctor}}/get/{{ patient.id }}">{{ patient.Patient_ID }}</a></h2>
-<p>{{ patient.Patient_History }}</p>
-</div>
-{% endfor %}
-
-
-{% endblock %}
+    {% for patient in patients %}
+    <div>
+        <h2><a href="/doctor/{{doctor}}/get/{{ patient.id }}">{{ patient.Patient_ID }}</a></h2>
+        <p>{{ patient.Patient_History }}</p>
+    </div>
+    {% endfor %}
+</h1><h1>{% endblock %}</h1>

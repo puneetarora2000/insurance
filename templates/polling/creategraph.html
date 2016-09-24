@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<input type="hidden" id="insurance"  value="{{datalist}}">
+<input type="hidden" id="graph_data" value="{{datalist}}"/>
+
+
+
+<center><p>Insurance Rewards of the Subjects </p></center>
+<center>
+
+ <!--{{datalist}}-->
+
+{% if datalist %}
+    <!--<p>Number of Records are : {{ datalist|length }} </p>-->
+
+   {% else %}
+   <p> No Data Coming , Check Why .</p>
+
+{% endif %}
+{% load staticfiles %}
+
+
+    <div id="myPieChart" style="min-height:400px;"></div>
+
+</center>
+
+<script type="text/javascript">
+
+    var graph_data = JSON.parse(document.getElementById('graph_data').value);
+    console.log(graph_data);
+
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawBasic);
+
+    function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Stats', 'Reward Points'],
+        ['Sleep PatternsMonitor Reading', graph_data['SleepReward']],
+        <!--['Temperature Reward Points', graph_data['TemperatureMonitorReading__avg']],-->
+        ['Workout Reward Points', graph_data['WorkOutReward']],
+        <!--['Sugar Rewards Points',graph_data['SugarMonitoringDeviceReading__avg']],-->
+        <!--['Pulse Reward Points', graph_data['PulseMonitorReading__avg']],-->
+        ['Age Reward Points', graph_data['AgeReward']],
+        ['Family Size Reward Points', graph_data['FamilyReward']],
+        ['Marital Status Reward Points', graph_data['M']],
+        ['Tobacco Reward Points', graph_data['TobaccoReward']],
+        ['Alcohol Reward Points', graph_data['AlcoholReward']],
+        ['Profession Reward Points', graph_data['ProfessionReward']],
+      ]);
+
+      var options = {
+        title: 'Sensor Recoding Average Values ',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Reward points',
+          minValue: 1
+        },
+        vAxis: {
+          title: 'Parameters'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('myPieChart'));
+
+      chart.draw(data, options);
+    }
+
+
+
+</script>
+
+ <h1>{% endblock %}</h1>

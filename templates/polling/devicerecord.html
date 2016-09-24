@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+ <!--<h1>Kindly Register the Patients from :</h1></u>-->
+
+<!--{% if recorddata %}-->
+    <!--<p>Number of Records are : {{ recorddata|length }} </p>-->
+
+    <!--{% for data in recorddata %}-->
+    <!--<div>-->
+        <!--<p>{{ data.id }}</p>-->
+
+    <!--</div>-->
+    <!--{% endfor %}-->
+
+
+<!--{% else %}-->
+   <!--<p> No Data Coming , Check Why .</p>-->
+
+<!--{% endif %}-->
+
+
+<p>Kindly Register the Devices :For Data Pooling </p>
+
+<form method="POST" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <div id="patient_checks">
+
+    </div>
+</form>
+
+<script type="text/javascript" >
+
+    window.CSRF_TOKEN = "{{ csrf_token }}"
+
+</script>
+
+ <h1>{% endblock %}</h1>

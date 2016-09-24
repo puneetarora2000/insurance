@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<center><p>Insurance Preminum of the Subjects </p></center>
+<center>
+
+ <h1>Kindly Register the Patients from :</h1></u>
+{{datalist}}
+{% if datalist %}
+    <p>Number of Records are : {{ datalist|length }} </p>
+
+    {% for data in datalist %}
+    <div>
+        <a href="{% url 'polling:creategraph' data.id %}">{{data.id}}</a>
+
+    </div>
+    {% endfor %}
+
+
+{% else %}
+   <p> No Data Coming , Check Why .</p>
+
+{% endif %}
+
+
+
+
+</center>
+ <h1>{% endblock %}</h1>

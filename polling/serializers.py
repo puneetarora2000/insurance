@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from polling.models import *
 from rest_framework import serializers
-
+from rest_framework import generics, permissions
 
 
 #1
@@ -27,18 +27,18 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 #3
 class ContactLoggingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model =  ContactLogging
+        model =  APIContactLogging
         fields = ('contact','start_datetime','end_datetime','measurement','interval','lastupdate')
 
 #4
-class HospitalSubjectDeviceRegistrationSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = HospitalSubjectDeviceRegistration
-        fields = ('hospital_name_id','subject_detail','subject_insurance_policy_detail','medical_history_brief','device_details','lastupdate')
-#5
 class HospitalSubjectRegistrationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = HospitalSubjectRegistration
+        fields = ('hospital_name_id','subject_detail','subject_insurance_policy_detail','medical_history_brief','device_details','lastupdate')
+#5
+class HospitalRegistrationSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = HopitalRegistration
         fields = ('hospital_detail','api_public_key','api_private_key','api_consumer_key','api_token_key','isactive','isverified','lastupdate','lastupdate')
 
 #6        #InsuraceOfficeRegistration
@@ -48,10 +48,10 @@ class InsuraceOfficeRegistrationSerializer(serializers.HyperlinkedModelSerialize
         fields = ('insurance_office','api_private_key','api_public_key','api_consumer_key','api_token_key','lastupdate')
 
 #7        #InsurancePremiumModelling
-class InsurancePremiumModellingSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = InsurancePremiumModelling
-        fields = ('hospital_id','subject_id','insurance_policy_id','projected_premium','lastupdate')
+# class InsurancePremiumModellingSerializer(serializers.HyperlinkedModelSerializer):
+#     class Meta:
+#         model = InsurancePremiumModelling
+#         fields = ('hospital_id','subject_id','insurance_policy_id','projected_premium','lastupdate')
 
 
 #8
@@ -59,3 +59,9 @@ class InsuranceplancategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Insuranceplancategory
         fields = ('insuranceplancategoryname','insuranceplancategorydocumention','lastupdate')
+
+class CardiacSerializer(serializers.ModelSerializer):
+    permission_classes = [permissions.AllowAny]
+    class Meta:
+        model =  CadiacData
+#9 DeviceSerializerViewSet

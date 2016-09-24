@@ -14,7 +14,12 @@
 
 {% endblock %}
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}"> Insurance </a></h1>
-{% endblock %}
 
-{% block nav-global %}{% endblock %}
+<h3 id="site-name"><a href="{% url 'admin:index' %}"> Insurance Inc :  </a></h3>
+
+{% endblock %}
+	
+{% block nav-global %}
+
+<h3 id="site-name"><a href="{% url 'polling:patientrecord' %}"> Quick Registration</a></h3>
+{% endblock %}

@@ -25,6 +25,7 @@ SECRET_KEY = '##p)bpa9fwyb$$02)u@#x^35%%8um^gr)7t4r+c82h6%$#plcz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ORIGIN_ALLOW_ALL = True
 ALLOWED_HOSTS = []
 
 
@@ -45,7 +46,11 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
+	'corsheaders',
 ]
+
+APPEND_SLASH = False
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +61,36 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+	'corsheaders.middleware.CorsMiddleware',
 ]
+
+# CORS_ORIGIN_ALLOW_ALL = True
+#
+#
+# CORS_ORIGIN_WHITELIST = ()
+#
+# CORS_ALLOW_METHODS = (
+#         'GET',
+#         'POST',
+#         'PUT',
+#         'PATCH',
+#         'DELETE',
+#         'OPTIONS'
+#     )
+#
+# CORS_ALLOW_HEADERS = (
+#         'x-requested-with',
+#         'content-type',
+#         'accept',
+#         'origin',
+#         'authorization',
+#         'x-csrftoken'
+#     )
+#
+#
+# CORS_EXPOSE_HEADERS = ()
 
 ROOT_URLCONF = 'insurance.urls'
 
@@ -156,6 +190,9 @@ CKEDITOR_IMAGE_BACKEND = "pillow"
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_AUTHENTICATION_CLASSES':('rest_framework.authentication.BasicAuthentication',),
 }
- 
+
+
+ #http://stackoverflow.com/questions/20306981/how-do-i-integrate-ajax-with-django-applications
